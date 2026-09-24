@@ -395,34 +395,6 @@ a failure names what broke rather than which function changed.
 - **`backend.main` imports ~235 MB.** It was 404 MB until `backend/_transformers_guard.py` stopped `langchain_core`'s import-time feature probe from pulling in torch, which arrives transitively through `docling`. Enabling the cross-encoder adds roughly 270 MB and would not fit a 512 MB instance. The text splitter is imported lazily for the same reason.
 - **An LLM holistic score is blended into the ranking at a hardcoded 30%.** Nothing justified 30 over 10 or 50, so the weight became a per-run parameter and was measured. Removing the component entirely scored no worse than keeping it. It survives only because that result sits inside the noise floor in both directions.
 
-## Source availability
-
-This repository is the written record of the system — its architecture, the
-decisions behind it, and what the benchmark measured, alongside a minimal code
-excerpt showing how the pieces fit.
-
-The directory tree mirrors the private repository exactly, and every package
-documents itself. What is withheld is the contents of the modules: prompts,
-node bodies, retrieval and scoring, the evaluation harness, the security layer,
-the benchmark's ground truth and the infrastructure definitions. The
-implementation is available on request for review.
-
-One file is complete rather than trimmed —
-[`backend/retrieval/fusion.py`](backend/retrieval/fusion.py), because
-reciprocal rank fusion is a published algorithm and there is nothing in it to
-withhold.
-
-| | |
-|---|---|
-| [`README.md`](README.md) | architecture, request flow, API surface, data model, security |
-| [`backend/`](backend/) | every package, documented; graph wiring, state contract and the public route as excerpts |
-| [`frontend/`](frontend/) | every package, documented; the API contract and the query console as excerpts |
-| [`infrastructure/`](infrastructure/) | what each deployment target is, and why it is sized that way |
-| [`tests/`](tests/) | how the suite is organised, and the fixtures that exercise the hard paths |
-| [`docs/ARCHITECTURE_DECISIONS.md`](docs/ARCHITECTURE_DECISIONS.md) | thirteen decisions, including the ones that earned nothing |
-| [`docs/CASE_STUDY.md`](docs/CASE_STUDY.md) | the problem this solves, and what it deliberately does not |
-| [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md) | nine runs, and the noise floor that governs reading them |
-| [`screenshots/`](screenshots/) | query console, evaluation dashboard, admin screens |
 
 ## License
 
