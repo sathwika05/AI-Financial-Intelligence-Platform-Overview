@@ -11,4 +11,4 @@
 | `ragas_evaluator.py` | faithfulness, relevancy, context precision and recall |
 | `market_evaluator.py` | live-data claims |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

@@ -9,4 +9,4 @@
 | `create_readonly_role.sql` | the SELECT-only role generated SQL runs as |
 | `push_image_to_ecr.py` | build and push the container image |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

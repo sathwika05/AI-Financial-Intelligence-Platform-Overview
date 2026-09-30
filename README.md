@@ -79,7 +79,7 @@ limits — are in **[docs/OPERATIONS.md](docs/OPERATIONS.md)**.
 - [Deployment](#deployment)
 - [Project layout](#project-layout)
 - [Engineering notes](#engineering-notes)
-- [Source availability](#source-availability)
+- [What's here](#whats-here)
 
 ## Screens
 
@@ -300,7 +300,7 @@ Ground truth is maintained in two halves for a reason:
 - **Derived** — the 60 valuation and growth questions are generated from specifications in `question_bank.py` by querying the seeded database. Never hand-edited; regenerate after every reseed.
 - **Authored** — the sentiment and mixed questions carry reference answers and reference contexts written by a human. A model-written reference would only confirm the model's own output.
 
-**Reseeding invalidates all of it.** The seed pulls live fundamentals, so market caps and P/E ratios move and the membership of a "top five" can change outright — one reseed dropped NVDA out of the five smallest technology market caps and brought CRM in. The pipeline then answers correctly and the benchmark marks it wrong, which looks exactly like a regression. This is what the [frozen snapshot](#seeding-and-the-frozen-snapshot) exists to prevent.
+**Reseeding invalidates all of it.** The seed pulls live fundamentals, so market caps and P/E ratios move and the membership of a "top five" can change outright — one reseed dropped NVDA out of the five smallest technology market caps and brought CRM in. The pipeline then answers correctly and the benchmark marks it wrong, which looks exactly like a regression. This is what the [frozen snapshot](#benchmark-reproducibility) exists to prevent.
 
 Beyond RAGAS, a **claim audit** extracts individual factual claims from an answer and checks each against the retrieved evidence, so an answer that is right overall but unsupported in one sentence is visible as such.
 
@@ -403,8 +403,7 @@ One gotcha it encodes: the ECS image serves the frontend from the same container
 ## Project layout
 
 Every directory below exists in this repository and carries a `README.md`
-describing what it is responsible for and which modules live in it. A handful
-also carry a trimmed code excerpt. The implementations are private.
+describing what it is responsible for and which modules live in it.
 
 ```
 backend/
@@ -453,6 +452,21 @@ a failure names what broke rather than which function changed.
 - **`backend.main` imports ~235 MB.** It was 404 MB until `backend/_transformers_guard.py` stopped `langchain_core`'s import-time feature probe from pulling in torch, which arrives transitively through `docling`. Enabling the cross-encoder adds roughly 270 MB and would not fit a 512 MB instance. The text splitter is imported lazily for the same reason.
 - **An LLM holistic score is blended into the ranking at a hardcoded 30%.** Nothing justified 30 over 10 or 50, so the weight became a per-run parameter and was measured. Removing the component entirely scored no worse than keeping it. It survives only because that result sits inside the noise floor in both directions.
 
+
+## What's here
+
+| | |
+|---|---|
+| [`backend/`](backend/) | graph wiring, state contract, the public route, package documentation |
+| [`frontend/`](frontend/) | the API contract and the call the query console makes |
+| [`infrastructure/`](infrastructure/) | what each deployment target is, and why it is sized that way |
+| [`tests/`](tests/) | how the suite is organised, and the fixtures that exercise the hard paths |
+| [`docs/ARCHITECTURE_DECISIONS.md`](docs/ARCHITECTURE_DECISIONS.md) | thirteen decisions, including the ones that earned nothing |
+| [`docs/CASE_STUDY.md`](docs/CASE_STUDY.md) | the problem this solves, and what it deliberately does not |
+| [`docs/BENCHMARKS.md`](docs/BENCHMARKS.md) | nine runs, and the noise floor that governs reading them |
+| [`docs/OPERATIONS.md`](docs/OPERATIONS.md) | timeouts, degradation, failure modes, capacity limits |
+| [`SECURITY.md`](SECURITY.md) | what is enforced on the request path, and reporting |
+| [`screenshots/`](screenshots/) | query console, evaluation dashboard, admin screens |
 
 ## License
 

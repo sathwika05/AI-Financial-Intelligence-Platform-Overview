@@ -2,9 +2,8 @@
 
 ## Reporting
 
-This repository holds documentation and illustrative excerpts, not the running
-service. If you believe you have found a vulnerability in the described design,
-or in anything published here, open an issue describing the concern without
+If you believe you have found a vulnerability in the design described here, or
+in the public deployment, open an issue describing the concern without
 including exploit detail, and I will follow up.
 
 ## What is enforced in the implementation
@@ -41,5 +40,5 @@ Every layer records its decision to an append-only event log.
 
 ## What is not in this repository
 
-No credentials, connection strings, prompts, ground truth or infrastructure
-definitions are published here. The implementation is private.
+No credentials, connection strings, API keys or benchmark ground truth are
+published here.

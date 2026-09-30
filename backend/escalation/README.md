@@ -6,4 +6,4 @@
 |---|---|
 | `service.py` | queueing, listing and resolution |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

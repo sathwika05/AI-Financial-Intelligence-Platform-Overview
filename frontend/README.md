@@ -1,8 +1,7 @@
-# frontend — minimal excerpt
+# frontend
 
-Vite + React + TypeScript. Enough to show the API contract and how a query is
-made; the rest of the UI — the evaluation dashboard, admin screens and the
-component library behind them — is private.
+Vite + React + TypeScript. The API contract and how a query is made, alongside
+the evaluation dashboard, admin screens and the component library behind them.
 
 | File | What it shows |
 |---|---|

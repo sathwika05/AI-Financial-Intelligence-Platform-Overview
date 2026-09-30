@@ -1,5 +1,5 @@
 """
-The pipeline graph. Wiring only — node bodies are private.
+The pipeline graph and how its stages are wired.
 
     intent → planner → retrieval → scoring → [reranker] → analysis → reviewer
 

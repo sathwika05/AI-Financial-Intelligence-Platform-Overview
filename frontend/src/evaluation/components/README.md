@@ -10,4 +10,4 @@
 | `ClaimTiles.tsx` | claim-audit results |
 | `RetrievalPipelineDiagram.tsx` | the retrieval stages a run actually used |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

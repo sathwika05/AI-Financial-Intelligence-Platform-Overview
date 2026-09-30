@@ -9,4 +9,4 @@
 | `judges.py` | the judge clients, with bounded timeouts |
 | `schemas.py / metrics.py` | result shapes and metric definitions |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

@@ -12,4 +12,4 @@
 | `llm_guard.py` | an optional model-based check, off by default |
 | `events.py / events_feed.py` | the security event log |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

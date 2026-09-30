@@ -13,4 +13,4 @@
 | `sql_executor.py` | schema lookup, generation, validation, execution, repair |
 | `query_filters.py / theme_resolver.py` | filter extraction and cohort resolution |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

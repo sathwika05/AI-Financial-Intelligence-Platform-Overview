@@ -9,4 +9,4 @@
 | `router.ts` | the hash router |
 | `consoleSession.ts` | query history for the session |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

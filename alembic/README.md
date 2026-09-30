@@ -7,4 +7,4 @@
 | `versions/` | the revisions |
 | `env.py` | Alembic configuration |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

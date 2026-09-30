@@ -7,4 +7,4 @@
 | `LoginPage.tsx` | the form |
 | `session.ts` | token storage and the authenticated fetch wrapper |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

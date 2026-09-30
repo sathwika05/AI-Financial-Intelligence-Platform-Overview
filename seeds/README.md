@@ -9,4 +9,4 @@
 | `snapshot.py` | create, restore and verify the frozen snapshot |
 | `themes.py` | the sector and theme taxonomy |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

@@ -11,4 +11,4 @@
 | `aws.py / publisher.py / consumer.py / queue_worker.py` | the S3 to SQS to worker path |
 | `events.py / events_log.py` | one row per attempt |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

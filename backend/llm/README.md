@@ -11,4 +11,4 @@
 | `message_text.py` | reads a reply as text whatever shape a provider returns |
 | `usage_tracker.py` | tokens and cost per node |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

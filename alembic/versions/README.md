@@ -6,4 +6,4 @@
 |---|---|
 | `(revisions)` | each named for the change it makes |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

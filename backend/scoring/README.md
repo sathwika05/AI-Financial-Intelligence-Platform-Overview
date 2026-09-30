@@ -8,4 +8,4 @@
 | `evidence_builder.py` | per-company citations |
 | `score_normalizer.py` | the explainability breakdown and recommendation bucket |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

@@ -7,4 +7,4 @@
 | `render.yaml` | services, their sizes and the reasoning in comments |
 | `vercel.json` | the rewrite rules for the static UI |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

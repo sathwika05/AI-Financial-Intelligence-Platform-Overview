@@ -10,4 +10,4 @@
 | `storage.tf` | buckets and queues |
 | `variables.tf / outputs.tf / providers.tf` | inputs, outputs, provider pinning |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

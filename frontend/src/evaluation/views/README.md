@@ -11,4 +11,4 @@
 | `RetrievalModesView.tsx / ProvidersView.tsx` | the retrieval and provider arms |
 | `ValidationView.tsx / ErrorView.tsx` | ground-truth drift and error analysis |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

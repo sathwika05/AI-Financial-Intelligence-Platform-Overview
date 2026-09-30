@@ -12,4 +12,4 @@
 | `analysis_node.py` | drafts the cited report |
 | `reviewer_node.py` | fact-checks the draft, and can withhold it |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

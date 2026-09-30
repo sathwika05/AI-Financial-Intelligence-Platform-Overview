@@ -12,4 +12,4 @@
 | `claim_routes.py / escalation_routes.py` | claim audit, and answers queued for human review |
 | `security_routes.py / admin_llm_routes.py` | event feed, provider and model configuration |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

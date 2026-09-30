@@ -9,4 +9,4 @@
 | `verify_ground_truth.py` | fails non-zero on drift |
 | `question_sets/` | valuation, growth, sentiment, mixed, plus smoke and focus |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

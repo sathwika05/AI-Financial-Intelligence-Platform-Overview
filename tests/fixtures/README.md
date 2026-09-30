@@ -8,4 +8,4 @@
 | `filing_scanned_no_text_layer.pdf` | a scan — extraction must fail honestly, not return empty text |
 | `filing_password_protected.pdf` | unreadable, and recorded as an attempt that produced no document |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._

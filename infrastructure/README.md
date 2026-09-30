@@ -8,4 +8,4 @@
 | `production/` | Terraform for the AWS topology: ALB, ECS Fargate, RDS in private subnets, S3 to SQS ingestion, Secrets Manager |
 | `shared/` | the container registry and certificate both environments use |
 
-_Implementations are private. This file lists what lives here and what it is responsible for._
+_This file lists what lives here and what it is responsible for._
