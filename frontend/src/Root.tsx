@@ -4,9 +4,6 @@
  * Which screens exist depends on the deployment: `/health` reports whether
  * auth is required, and in `portfolio` mode the admin and evaluation routes
  * are not mounted on the API at all, so the UI does not offer them.
- *
- * Illustrative excerpt — signatures and contracts only. Bodies are elided and
- * the imports do not resolve, so this file does not build.
  */
 
 export interface Health {

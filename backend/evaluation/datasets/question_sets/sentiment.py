@@ -4,9 +4,6 @@ Authored questions — the sentiment half.
 Reference answers and reference contexts are written by hand. A model-written
 reference would only confirm the model's own output, which is why this half
 is never generated the way the valuation and growth sets are.
-
-Illustrative excerpt — signatures and contracts only. Bodies are elided and
-the imports do not resolve, so this file does not run.
 """
 from dataclasses import dataclass
 

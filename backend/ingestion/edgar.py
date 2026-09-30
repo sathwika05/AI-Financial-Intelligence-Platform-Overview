@@ -6,9 +6,6 @@ publishes a request-per-second ceiling per caller, and a bucket that refills
 smoothly still permits a burst at the boundary. The lock is per-process while
 the egress address is shared, so it is correct at one instance and one
 Terraform line away from being silently wrong.
-
-Illustrative excerpt — signatures and contracts only. Bodies are elided and
-the imports do not resolve, so this file does not run.
 """
 from dataclasses import dataclass
 

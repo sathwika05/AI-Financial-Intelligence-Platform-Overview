@@ -5,9 +5,6 @@ Four terminals, two of which withhold the ranking rather than present it as
 reviewed. A transport failure is not a finding about the answer, and telling a
 reader "the reviewer raised 0 unresolved issues" while withholding the
 reviewer's result is worse than telling them nothing.
-
-Illustrative excerpt — signatures and contracts only. Bodies are elided and
-the imports do not resolve, so this file does not run.
 """
 from typing import Any, Literal
 

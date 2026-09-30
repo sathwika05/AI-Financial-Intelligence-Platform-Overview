@@ -3,9 +3,6 @@
  *
  * Every headline metric carries its delta against the previous run, because a
  * single run's number means little against an 11-question noise floor.
- *
- * Illustrative excerpt — signatures and contracts only. Bodies are elided and
- * the imports do not resolve, so this file does not build.
  */
 export interface RunSummary {
   runId: string;

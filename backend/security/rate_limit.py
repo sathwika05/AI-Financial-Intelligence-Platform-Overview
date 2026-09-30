@@ -5,9 +5,6 @@ Per-caller request ceiling.
 reached the limiter allows the request and records that it could not count.
 The alternative — refusing every caller because the counter is unavailable —
 converts a degraded dependency into a total one.
-
-Illustrative excerpt — signatures and contracts only. Bodies are elided and
-the imports do not resolve, so this file does not run.
 """
 from dataclasses import dataclass
 

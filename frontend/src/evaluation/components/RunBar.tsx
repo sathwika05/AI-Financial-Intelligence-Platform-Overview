@@ -3,9 +3,6 @@
  *
  * The retrieval switches are per-run, which is what makes baseline, RRF,
  * cross-encoder and both comparable against the same questions.
- *
- * Illustrative excerpt — signatures and contracts only. Bodies are elided and
- * the imports do not resolve, so this file does not build.
  */
 export interface RunRequest {
   providerId: string;

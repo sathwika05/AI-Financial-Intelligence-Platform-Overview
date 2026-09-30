@@ -6,9 +6,6 @@ addresses, each inside its own limit, and all their pipelines start together
 on one small instance. Surplus work is refused with `Retry-After` rather than
 queued — a queued request on a 10-45 second pipeline is a request that will
 time out somewhere else instead.
-
-Illustrative excerpt — signatures and contracts only. Bodies are elided and
-the imports do not resolve, so this file does not run.
 """
 from contextlib import asynccontextmanager
 

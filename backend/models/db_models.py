@@ -4,9 +4,6 @@ SQLAlchemy models. 23 tables.
 Embeddings live on `document_chunks`, not `documents` — a filing is far
 longer than one embedding can represent, and chunk-level vectors are what
 retrieval actually compares against.
-
-Illustrative excerpt — signatures and contracts only. Bodies are elided and
-the imports do not resolve, so this file does not run.
 """
 from sqlalchemy.orm import DeclarativeBase, Mapped
 

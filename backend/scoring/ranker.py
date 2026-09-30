@@ -5,9 +5,6 @@ Four normalized dimensions, weighted by which sources actually returned data.
 A dimension with no data is reported as `unmeasured` rather than scored zero —
 scoring it zero is a claim that the company did badly, which is not what a
 missing source means.
-
-Illustrative excerpt — signatures and contracts only. Bodies are elided and
-the imports do not resolve, so this file does not run.
 """
 from typing import Any
 

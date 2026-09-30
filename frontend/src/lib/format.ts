@@ -4,9 +4,6 @@
  * Market capitalisation arrives as a number or as a preformatted string
  * depending on which source supplied it, so every formatter here accepts both
  * rather than asserting one.
- *
- * Illustrative excerpt — signatures and contracts only. Bodies are elided and
- * the imports do not resolve, so this file does not build.
  */
 export declare function formatMarketCap(value: number | string | null): string;
 

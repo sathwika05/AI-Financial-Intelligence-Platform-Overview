@@ -4,9 +4,6 @@ Node-boundary tracing.
 LangGraph already opens one run per registered node, so this deliberately
 does **not** add a second span per node — it wraps a node to record its
 timing and token cost, and leaves the trace hierarchy to LangSmith.
-
-Illustrative excerpt — signatures and contracts only. Bodies are elided and
-the imports do not resolve, so this file does not run.
 """
 from typing import Any, Callable
 

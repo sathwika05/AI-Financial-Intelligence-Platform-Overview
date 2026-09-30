@@ -3,9 +3,6 @@
  *
  * Recommendation buckets are deliberately coarse. A finer scale would imply a
  * precision the composite score does not have.
- *
- * Illustrative excerpt — signatures and contracts only. Bodies are elided and
- * the imports do not resolve, so this file does not build.
  */
 export type Recommendation =
   | "Strong Buy" | "Buy" | "Hold" | "Sell" | "Strong Sell";

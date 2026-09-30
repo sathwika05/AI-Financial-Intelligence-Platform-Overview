@@ -3,9 +3,6 @@ Runs a question set and records what happened.
 
 Run-level metrics are written at completion, so a run finished across two
 invocations has to be rebuilt from its per-question rows.
-
-Illustrative excerpt — signatures and contracts only. Bodies are elided and
-the imports do not resolve, so this file does not run.
 """
 from dataclasses import dataclass
 from uuid import UUID

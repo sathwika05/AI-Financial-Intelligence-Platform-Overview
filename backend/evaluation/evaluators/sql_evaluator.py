@@ -4,9 +4,6 @@ Grades generated SQL two ways.
 Row accuracy against the expected result set is the primary signal; semantic
 equivalence of the query text is secondary, because two correct queries can
 differ in text and an identical query can be correct by accident.
-
-Illustrative excerpt — signatures and contracts only. Bodies are elided and
-the imports do not resolve, so this file does not run.
 """
 from dataclasses import dataclass
 

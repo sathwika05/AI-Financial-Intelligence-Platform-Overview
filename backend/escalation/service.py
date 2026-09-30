@@ -5,9 +5,6 @@ An answer the reviewer could not approve is queued here rather than shown as
 reviewed. This is the review loop that matters — a second loop for grading
 benchmark output was considered and rejected, because authored ground truth
 is written before a run, not rated after it.
-
-Illustrative excerpt — signatures and contracts only. Bodies are elided and
-the imports do not resolve, so this file does not run.
 """
 from dataclasses import dataclass
 from uuid import UUID
