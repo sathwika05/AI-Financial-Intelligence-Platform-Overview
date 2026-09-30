@@ -1,13 +1,38 @@
 # Financial Intelligence Pipeline
 
+**An evidence-grounded financial research service that refuses to answer when it
+cannot support the answer.** Deployed in two modes behind Terraform-defined AWS
+infrastructure, instrumented end to end, and measured against a 100-question
+benchmark whose noise floor is itself measured.
+
 A FastAPI + LangGraph service that answers natural-language financial questions by routing them across **SQL** (structured company and financial data), **vector/RAG retrieval** (news, filings, earnings coverage), and **live market data**, then scores, ranks and synthesizes the results into a cited report that a reviewer node fact-checks before it is returned.
 
 Around that pipeline sit the parts that make its quality measurable: a 100-question benchmark with versioned ground truth, RAGAS and custom evaluators, a claim-level audit, an escalation path for low-confidence answers, and a dashboard for reading the results.
 
 ![The evaluation dashboard](screenshots/evaluation-dashboard.png)
 
+## At a glance
+
+| | |
+|---|---|
+| **Runtime** | FastAPI · LangGraph state graphs · Python 3.13 |
+| **Storage** | Postgres + pgvector (23 tables, HNSW index) · Redis |
+| **Models** | Provider-agnostic, resolved per tier from the database — never hardcoded. Keys stored Fernet-encrypted |
+| **Pipeline** | 7 stages, parallel retrieval fan-out, a reviewer that can refuse to answer |
+| **Quality** | 100-question benchmark, versioned ground truth, RAGAS + 5 custom evaluators, claim-level audit |
+| **Tests** | 101 modules, named for the guarantee each defends |
+| **Observability** | 57 instrumented spans · per-node latency, tokens and cost · security event log |
+| **Security** | 6 layers on the request path, measured at ~0.4 ms against a 10–45 s pipeline |
+| **Deployment** | Terraform: ALB → ECS Fargate → RDS in private subnets, S3 → SQS ingestion, Secrets Manager |
+| **Modes** | `portfolio` (public, unauthenticated, rate-limited) and `full` (JWT, roles per router) |
+
+Operational characteristics — timeouts, degradation, failure modes and known
+limits — are in **[docs/OPERATIONS.md](docs/OPERATIONS.md)**.
+
+
 ## Contents
 
+- [At a glance](#at-a-glance)
 - [Screens](#screens)
 - [Architecture](#architecture)
 - [Deployment modes](#deployment-modes)
@@ -294,7 +319,7 @@ already answered the question:
 - **concurrency** — a ceiling on how many queries run *at once*, across all callers, refusing the surplus with a `Retry-After` rather than queueing them. Not a substitute for the line above: several callers are several addresses, each inside its own per-caller limit, and all their pipelines start together on one small instance
 - **llm_guard** — an optional LLM-based check, off by default because it costs an API round trip per query
 
-Every layer records what it did to `system_logs`, which the admin security feed reads.
+Every layer records what it did to `system_logs`, which the admin security feed reads. The posture and the decisions behind it are in [SECURITY.md](SECURITY.md).
 
 ## Benchmark results
 
