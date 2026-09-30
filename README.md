@@ -1,7 +1,7 @@
 # Financial Intelligence Pipeline
 
 **An evidence-grounded financial research service that refuses to answer when it
-cannot support the answer.** Deployed in two modes behind Terraform-defined AWS
+cannot support the answer.** [Live, and answering](#try-it). Deployed in two modes behind Terraform-defined AWS
 infrastructure, instrumented end to end, and measured against a 100-question
 benchmark whose noise floor is itself measured.
 
@@ -10,6 +10,38 @@ A FastAPI + LangGraph service that answers natural-language financial questions 
 Around that pipeline sit the parts that make its quality measurable: a 100-question benchmark with versioned ground truth, RAGAS and custom evaluators, a claim-level audit, an escalation path for low-confidence answers, and a dashboard for reading the results.
 
 ![The evaluation dashboard](screenshots/evaluation-dashboard.png)
+
+## Try it
+
+The public deployment runs in `portfolio` mode — no authentication, one
+unauthenticated query route, a per-caller rate limit as the only ceiling.
+
+**Health** — returns the deployment's own posture, including whether it requires auth:
+
+<https://fip-preprod-api.onrender.com/health>
+
+```json
+{"status":"ok","db":"connected","redis":"connected","auth_required":false}
+```
+
+**Ask it something:**
+
+```bash
+curl -X POST https://fip-preprod-api.onrender.com/api/retrieve/financial \
+  -H 'Content-Type: application/json' \
+  -d '{"query":"Which semiconductor companies have the most positive recent sentiment?"}'
+```
+
+A real response from that call: intent routed to `SENTIMENT`, companies
+`NVDA · AMD · INTC`, review decision `approved`, **29.5 s**. That is the
+documented range — the pipeline runs seven stages and fact-checks its own draft
+before returning.
+
+Two honest caveats. The instance is small and may be cold, so a first request
+can take considerably longer than a warm one. And a question the system cannot
+support from retrieved evidence comes back **withheld, with a reason** rather
+than answered — that is the behaviour worth testing, not a failure.
+
 
 ## At a glance
 
@@ -32,6 +64,7 @@ limits — are in **[docs/OPERATIONS.md](docs/OPERATIONS.md)**.
 
 ## Contents
 
+- [Try it](#try-it)
 - [At a glance](#at-a-glance)
 - [Screens](#screens)
 - [Architecture](#architecture)
