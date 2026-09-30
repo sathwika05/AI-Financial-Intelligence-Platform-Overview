@@ -1,0 +1,13 @@
+/*
+ * Design tokens.
+ *
+ * Illustrative excerpt.
+ */
+:root {
+  /* Spacing and type scale only; the palette and component styles are private. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --text-sm: 13px;
+  --text-base: 15px;
+}

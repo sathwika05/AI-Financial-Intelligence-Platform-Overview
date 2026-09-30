@@ -9,6 +9,8 @@ component library behind them — is private.
 | `src/api/types.ts` | the response contract, and where it is looser than it looks |
 | `src/api/client.ts` | the one call, its error shapes and its length bounds |
 | `src/components/QueryConsole.tsx` | the query screen, trimmed to its states |
+| `src/Root.tsx` | what the UI offers, decided by what the API mounts |
+| `src/auth/`, `src/lib/`, `src/admin/`, `src/evaluation/` | one excerpt each — see the README in the folder |
 
 The UI calls the API through relative `/api` paths, never an absolute origin,
 because the backend registers no CORS middleware. Every deployment therefore
