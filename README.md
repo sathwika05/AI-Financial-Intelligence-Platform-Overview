@@ -356,7 +356,7 @@ Every layer records what it did to `system_logs`, which the admin security feed 
 
 ## Benchmark results
 
-Nine runs against the same 100 questions, varying one thing at a time. The
+Ten runs against the same 100 questions, varying one thing at a time. The
 headline is the control: **two identical baseline runs disagreed on 11 of 100
 questions**, so a configuration has to move more than that before it has
 demonstrated anything.
@@ -365,12 +365,16 @@ demonstrated anything.
 |---|---|
 | Baseline (dense + BM25Plus rerank) | 84 / 100 |
 | Baseline, repeated unchanged | 83 / 100 |
+| Reciprocal rank fusion | 85 / 100 |
 | LLM ranking weight removed | 86 / 100 |
 | Cross-encoder rerank | 87 / 100 |
+| RRF **and** cross-encoder | 86 / 100 |
 
-No retrieval configuration cleared the noise floor. Full detail, including the
-two provider swaps and why their numbers measure integration rather than model
-quality, is in [docs/BENCHMARKS.md](docs/BENCHMARKS.md).
+No retrieval configuration cleared the noise floor — and the 60 database
+questions are 30/30 in every arm, so the whole signal lives in the 40 narrative
+questions. Full detail, including the two provider swaps and why their numbers
+measure integration rather than model quality, is in
+[docs/BENCHMARKS.md](docs/BENCHMARKS.md).
 
 ## Benchmark reproducibility
 

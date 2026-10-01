@@ -1,6 +1,6 @@
 # Benchmark results
 
-Nine runs against the same 100 questions, varying one thing at a time.
+Ten runs against the same 100 questions, varying one thing at a time.
 
 Read the control first. Everything else depends on it.
 
@@ -27,17 +27,20 @@ All on the same provider, varying only the retrieval configuration.
 | Arm | Valuation | Growth | Sentiment | Mixed | Total |
 |---|---|---|---|---|---|
 | Dense + BM25Plus rerank (baseline) | 30/30 | 30/30 | 18/25 | 6/15 | **84** |
-| The same baseline, repeated | — | — | — | — | **83** |
+| The same baseline, repeated unchanged | 30/30 | 30/30 | 18/25 | 5/15 | **83** |
+| Reciprocal rank fusion | 30/30 | 30/30 | 20/25 | 5/15 | **85** |
 | LLM ranking weight removed | 30/30 | 30/30 | 18/25 | 8/15 | **86** |
 | Cross-encoder rerank | 30/30 | 30/30 | 21/25 | 6/15 | **87** |
+| RRF **and** cross-encoder | 30/30 | 30/30 | 20/25 | 6/15 | **86** |
 
-Reciprocal rank fusion was measured on the 40 sentiment and mixed questions
-only — the 60 database questions do not retrieve documents, so fusing document
-rankings cannot affect them. It scored 25/40 against the baseline's 24/40 on
-the same subset.
+**Read the 60 database questions as inert.** They are answered from columns and
+retrieve no documents, so no retrieval configuration can move them — they are
+30/30 in every arm above, and the logs confirm the fusion stage never executes
+on them. The entire differentiating signal lives in the 40 narrative questions,
+where the noise floor is 11.
 
 **No retrieval configuration cleared the noise floor.** The spread across every
-arm is three questions against a measured error of eleven.
+arm is four questions against a measured error of eleven.
 
 Two results are worth stating precisely, because the temptation is to round
 them up:
@@ -53,6 +56,11 @@ them up:
   it reorders the evidence but never discards any of it. Its ceiling here is
   ordering effects alone, which makes a three-question move on 25 questions
   exactly the kind of result the noise floor exists to discipline.
+- **Stacking the two retrieval components gained nothing.** Running fusion and
+  the cross-encoder together scored 20/25 on sentiment and 6/15 on mixed —
+  below the cross-encoder alone on the first, tied with the plain baseline on
+  the second. Two components that each do nothing measurable do not combine
+  into something that does.
 
 ## Provider arms
 
@@ -63,6 +71,12 @@ far below the baseline, and **neither number measures the model's reasoning.**
 |---|---|---|
 | Provider B | 57/100 | SQL generation that omits `LIMIT` and filter clauses |
 | Provider C | 13/100 | A rate-limit ceiling the pipeline cannot run inside |
+
+Provider C's row deserves the detail, because "13/100" invites the wrong
+reading. Of its 75 SQL questions, **7 produced a query**; of its 40 narrative
+questions, **0 produced an answer**. The run reached the end of the question
+list — which is all a `completed` status means — while failing on essentially
+every question in it.
 
 ### Provider C: the score is the rate limit
 
@@ -115,6 +129,13 @@ Both are the same category of bug — an assumption that held because only one
 implementation had ever been exercised. Neither was findable without a second
 provider, and neither would have surfaced in a unit test written against the
 first.
+
+Provider C's arm cannot be re-run to a conclusion: its free tier cannot carry
+the pipeline, and the paid tier that would lift the limit has been closed to
+new customers for months. A fourth provider was blocked earlier for an
+unrelated reason — it rejects a sampling parameter the code always sends. Two
+of the planned arms were therefore limited by provider constraints rather than
+by the system under test, which is itself a portability result.
 
 ## What this measures, and what it does not
 
