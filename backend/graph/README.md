@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| `financial_graph.py` | the pipeline graph — wiring shown in this repo |
+| `financial_graph.py` | the pipeline graph — node registration and conditional edges |
 | `sql_graph.py` | an LLM bound to SQL tools, looping until done or three failed repairs |
 | `vector_graph.py` | an LLM bound to a single retrieval tool |
 | `runner.py` | invocation, config assembly, checkpointing |

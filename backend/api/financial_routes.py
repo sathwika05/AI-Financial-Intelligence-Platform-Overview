@@ -1,5 +1,5 @@
 """
-The one route available in every deployment mode. Trimmed: see backend/README.md.
+The one route available in every deployment mode. See backend/README.md.
 """
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel, Field

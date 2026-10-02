@@ -7,7 +7,7 @@
 | `hybrid_retrieval.py` | the fan-out, its timeouts and graceful degradation |
 | `vector_search.py` | pgvector ANN search and the BM25 rerank over its results |
 | `lexical_search.py` | BM25 over the whole corpus — the independent list RRF needs |
-| `fusion.py` | reciprocal rank fusion — **complete in this repo** |
+| `fusion.py` | reciprocal rank fusion |
 | `cross_encoder.py` | optional joint query-document rerank; fails open |
 | `embedding_cache.py` | query embeddings, cached on exact text |
 | `sql_executor.py` | schema lookup, generation, validation, execution, repair |

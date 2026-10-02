@@ -1,6 +1,6 @@
 # frontend/src/api
 
-**API contract.** Shown in this repo.
+**API contract.** The one call the UI makes and the response it gets back.
 
 | | |
 |---|---|

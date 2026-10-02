@@ -4,6 +4,6 @@
 
 | | |
 |---|---|
-| `financial_state.py` | shown in this repo |
+| `financial_state.py` | the state every node reads and writes |
 
 _This file lists what lives here and what it is responsible for._

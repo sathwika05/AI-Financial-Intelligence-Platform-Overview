@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| `tiers.py` | the tier a caller asks for — **complete in this repo** |
+| `tiers.py` | the tier a caller asks for |
 | `llm_factory.py / llm_context.py` | client construction and per-run config |
 | `llm_config_service.py` | provider and model resolution |
 | `encryption_service.py` | Fernet encryption for stored keys |

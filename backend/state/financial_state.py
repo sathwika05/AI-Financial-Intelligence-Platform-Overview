@@ -1,5 +1,5 @@
 """
-The state every node reads and writes. Trimmed: see backend/README.md.
+The state every node reads and writes. See backend/README.md.
 """
 from typing import Annotated, Any, TypedDict
 

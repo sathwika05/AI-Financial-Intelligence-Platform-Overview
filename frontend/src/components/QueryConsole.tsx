@@ -1,5 +1,5 @@
 /**
- * The query screen, trimmed to its states. See frontend/README.md.
+ * The query screen and its states. See frontend/README.md.
  *
  * A pipeline run takes 10-45 seconds, which is long enough that the waiting
  * state is part of the design rather than a spinner.

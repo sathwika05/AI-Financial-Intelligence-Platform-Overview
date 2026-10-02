@@ -4,7 +4,7 @@
 
 | | |
 |---|---|
-| `QueryConsole.tsx` | the query screen — shown in this repo |
+| `QueryConsole.tsx` | the query screen |
 | `RankedList.tsx / CompanyRow.tsx / ComparisonTable.tsx` | the ranking |
 | `EvidenceList.tsx / EvidenceSources.tsx / CitationText.tsx` | evidence and citations |
 | `ScoreBreakdown.tsx / ScoreSpine.tsx / RankingMethodology.tsx` | why a company placed where it did |

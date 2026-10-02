@@ -1,5 +1,5 @@
 /**
- * The one API call the query console makes. Trimmed: see frontend/README.md.
+ * The one API call the query console makes. See frontend/README.md.
  */
 import type { FinancialQueryResponse } from "./types";
 

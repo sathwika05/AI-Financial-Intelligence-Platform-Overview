@@ -1,5 +1,5 @@
 """
-Application factory. Trimmed: see backend/README.md.
+Application factory. See backend/README.md.
 
 The point of interest is that `DEPLOYMENT_MODE` decides which routers are
 mounted at all. Unlinking a route from the UI leaves it reachable, so a public
